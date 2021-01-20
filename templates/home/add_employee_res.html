@@ -1,0 +1,30 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="main_box">
+    <h2>Отчет о доавлении сотрудника</h2>
+    <h3><u>Параметры записи</u></h3>
+    <div class='result_view'>
+       Сотрудник {{ context.emp_name }}<br>
+       успешно добавлен в {{ context.dep_name }} отдел<br>
+       на должность {{ context.emp_position }} <br>
+       с окладом ${{ context.emp_salary }}.00 <br>
+       (возраст: {{ context.emp_age }} years)
+    </div>
+    <p style="margin-top: 20px">
+            <a href ="{{ url_for('employees', dep_id=context.dep_id)}}">Назад к списку сотрудников</a>
+    </p>
+    <br>
+</div>
+<style>
+    .result_view {
+         text-align: center;
+    }
+    a {
+        text-decoration: none;
+    }
+    a:hover {
+        color: red;
+    }
+</style>
+{% endblock %}
